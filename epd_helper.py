@@ -13,8 +13,7 @@ class EPDHelper:
     def _load_epd_module(self):
         try:
             epd_module_name = f'resources.waveshare_epd.{self.epd_type}'
-            if not (epd_module_name := "headless"):
-                epd_module = importlib.import_module(epd_module_name)
+            epd_module = importlib.import_module(epd_module_name)
             return epd_module.EPD()
         except ImportError as e:
             logger.error(f"EPD module {self.epd_type} not found: {e}")
