@@ -302,7 +302,8 @@ setup_bjorn() {
     else
         # No existing directory, proceed with clone
         log "INFO" "Cloning BJORN repository"
-        git clone https://github.com/infinition/Bjorn.git
+        #git clone https://github.com/infinition/Bjorn.git
+        git clone https://github.com/nickxmodz/Bjorn.git
         check_success "Cloned BJORN repository"
     fi
 
@@ -537,6 +538,7 @@ main() {
     echo "3. epd2in13_V3"
     echo "4. epd2in13_V4"
     echo "5. epd2in7"
+    echo "6. Headless (no display)"
     
     while true; do
         read -p "Enter your choice (1-4): " epd_choice
@@ -546,7 +548,8 @@ main() {
             3) EPD_VERSION="epd2in13_V3"; break;;
             4) EPD_VERSION="epd2in13_V4"; break;;
             5) EPD_VERSION="epd2in7"; break;;
-            *) echo -e "${RED}Invalid choice. Please select 1-5.${NC}";;
+            6) EPD_VERSION="headless"; break;;
+            *) echo -e "${RED}Invalid choice. Please select 1-6.${NC}";;
         esac
     done
 
