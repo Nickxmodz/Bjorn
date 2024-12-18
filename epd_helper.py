@@ -11,17 +11,16 @@ class EPDHelper:
         self.epd = self._load_epd_module()
 
     def _load_epd_module(self):
-        if(self.epd_type != 'headless'):
-            try:
-                epd_module_name = f'resources.waveshare_epd.{self.epd_type}'
-                epd_module = importlib.import_module(epd_module_name)
-                return epd_module.EPD()
-            except ImportError as e:
-                logger.error(f"EPD module {self.epd_type} not found: {e}")
-                raise
-            except Exception as e:
-                logger.error(f"Error loading EPD module {self.epd_type}: {e}")
-                raise
+        try:
+            epd_module_name = f'resources.waveshare_epd.{self.epd_type}'
+            epd_module = importlib.import_module(epd_module_name)
+            return epd_module.EPD()
+        except ImportError as e:
+            logger.error(f"EPD module {self.epd_type} not found: {e}")
+            raise
+        except Exception as e:
+            logger.error(f"Error loading EPD module {self.epd_type}: {e}")
+            raise
 
     def init_full_update(self):
         try:
