@@ -272,8 +272,7 @@ class SharedData:
                 self.screen_reversed = False
                 self.web_screen_reversed = False
 
-            self.epd_helper.init_full_update()
-                
+            self.epd_helper.init_full_update()   
             self.width, self.height = self.epd_helper.epd.width, self.epd_helper.epd.height
             logger.info(f"EPD {self.config['epd_type']} initialized with size: {self.width}x{self.height}")
         except Exception as e:
