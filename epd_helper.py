@@ -14,6 +14,9 @@ class EPDHelper:
 
     def _load_epd_module(self):
         try:
+            self.epd_type = epd_type
+            if (self.epd_type  == "headless"):
+                self.epd_type = "epd2in7"
             epd_module_name = f'resources.waveshare_epd.{self.epd_type}'
             epd_module = importlib.import_module(epd_module_name)
             return epd_module.EPD()
