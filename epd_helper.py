@@ -8,11 +8,8 @@ logger = logging.getLogger(__name__)
 class EPDHelper:
     def __init__(self, epd_type):
         
-        if (self.epd_type  == "headless"):
-            self.epd_type = "epd2in7"
-        else:
-            self.epd_type = epd_type
-            
+        self.epd_type = epd_type
+
         self.epd = self._load_epd_module()
 
     def _load_epd_module(self):
