@@ -312,6 +312,8 @@ class SharedData:
         self.networkkbnbr = 0
         self.attacksnbr = 0
         self.show_first_image = True
+        self.screen_reversed = False
+        self.web_screen_reversed = False
 
     def delete_webconsolelog(self):
             """Delete the web console log file."""
